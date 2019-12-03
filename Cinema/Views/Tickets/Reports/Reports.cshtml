@@ -1,0 +1,27 @@
+﻿@using Cinema.Models.Reports
+@using Cinema.Models.Tickets
+@using Cinema.Utils
+@{
+    var types = EnumUtil.GetValues<ReportType>();
+}
+
+<h2>Build report</h2>
+
+@using (Html.BeginForm("BuildReport", "Tickets"))
+{
+    <div class="form-group">
+        <label>Type</label>
+        <select name="ReportType" id="ReportType" class="form-control js-report-selector">
+            <option value="">Please select report type</option>
+            @foreach (var type in types)
+            {
+                <option value="@type">@type</option>
+            }
+        </select>
+    </div>
+
+    <div class="js-report-form-container">
+
+    </div>
+    <input type="submit" value="Build report" class="btn btn-success">
+}

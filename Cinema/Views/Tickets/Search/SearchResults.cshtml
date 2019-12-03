@@ -1,0 +1,55 @@
+﻿<div class="row js-search-result-container">
+</div>
+
+<div class="row js-search-page-container">
+</div>
+
+<div class="hidden js-search-result-item">
+    {{#each Result}}
+    <div class="col-md-6 movie-list-section">
+        <div class="row">
+            <div class="col-md-3 movie-list-header">
+                {{#with Movie}}
+                <div class="name-movies-list">{{Name}}</div>
+                {{/with}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                {{#with Movie}}
+                <div>
+                    {{#if ImageUrl}}
+                    <img class="img-rounded img-movies-list" src="{{ImageUrl}}" />
+                    {{/if}}
+                </div>
+                <div class="movie-list-footer">
+                    <div class="genres-movie-list">
+                        <div>
+                            {{FormattedGenres}}
+                        </div>
+                    </div>
+                </div>
+                {{/with}}
+            </div>
+            <div class="col-md-9">
+                {{#each AvailableTimeslots}}
+                <div class="timeslot-tag">
+                    <a class="btn btn-default btn-block" href="{{BuyTicketUrl}}">{{FormattedStartTime}}</a>
+                    <span>{{Cost}} P</span>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+<div class="hidden js-search-page-item">
+    {{#for 1 TotalPages 1}}
+    <div class="col-md-1">
+        <div class="btn btn-default btn-block js-page-selector" data-selected-page="{{this}}">{{this}}</div>
+    </div>
+    {{/for}}
+</div>
+
+

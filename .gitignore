@@ -1,0 +1,6 @@
+Cinema/.vs/*
+*/bin/*
+Cinema/packages/*
+*.user
+*/obj/*
+GeneratedFiles/Reports/*

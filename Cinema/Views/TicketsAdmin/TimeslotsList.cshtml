@@ -1,0 +1,41 @@
+﻿@using Cinema.Models.Tickets
+@model TimeslotGridRow[]
+
+@section SubNav
+{
+    @Html.Partial("~/Views/Shared/SubNavigation.cshtml", SubNavigationMenu.Timeslots)
+}
+
+<h2 class="admin-heading">Timeslots List</h2>
+<div class="admin-add-btn">
+    @Html.ActionLink("Add timeslot", "AddTimeslot", "TicketsAdmin", null, new { @class = "btn btn-success btn-block" })
+</div>
+
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th class="col">Id</th>
+            <th class="col">Start time</th>
+            <th class="col">Movie</th>
+            <th class="col">Hall</th>
+            <th class="col">Tariff</th>
+            <th class="col">Action</th>
+        </tr>
+    <thead>
+    <tbody>
+        @foreach (var timeslot in Model)
+        {
+            <tr>
+                <td>@timeslot.Id</td>
+                <td>@timeslot.StartTime</td>
+                <td>@timeslot.MovieName</td>
+                <td>@timeslot.HallName</td>
+                <td>@timeslot.TariffName</td>
+                <td>
+                    @Html.ActionLink("Edit", "EditTimeslot", "TicketsAdmin", new { timeslotId = timeslot.Id }, new { @class = "btn btn-primary btn-block" })
+                    @Html.ActionLink("Remove", "RemoveTimeslot", "TicketsAdmin", new { timeslotId = timeslot.Id }, new { @class = "btn btn-danger btn-block" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

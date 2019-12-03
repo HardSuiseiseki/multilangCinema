@@ -1,0 +1,16 @@
+﻿<h1>Search for film</h1>
+
+<div class="row">
+    <div class="col-md-1">
+        Search:
+    </div>
+        <div class="col-md-9">
+            <input class="form-control js-search-film-term" name="term" id="term">
+        </div>
+        <div class="col-md-2">
+            <input class="btn btn-success btn-block js-search-film-submit" type="button" value="Search"/>
+        </div>
+</div>
+
+@Html.Partial("~/Views/Tickets/Search/SearchResults.cshtml")
+
